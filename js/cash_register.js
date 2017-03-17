@@ -40,8 +40,19 @@ function clear() {
 	var clearDis = document.getElementById('display');
 	clearDis.innerHTML = '';
 	displayParent.appendChild(clearDis);
-	
+
 }
+
+function reset(){
+	clear();
+	calcTest.clearMemory();
+	console.log("memory" + calcTest.recallMemory());
+	dotAllow = false;
+	buttonOrder = [];
+
+}
+
+
 
 
  function runningDisplay(num) {
@@ -309,4 +320,18 @@ document.getElementById('clear').addEventListener('click', function(){
 	clear();
 	console.log(newDis);
 	console.log(balance);
+});
+
+document.getElementById('reset').addEventListener('click', function(){
+	reset();
+	newDis = 0;
+	//console.log(balance);
+	//console.log(total);
+	//console.log(memory);
+});
+
+document.getElementById('deposit').addEventListener('click', function(){
+	regTest.depositCash();
+	reset();
+
 });

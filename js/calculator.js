@@ -60,7 +60,7 @@ var calculatorModule = (function() {
       return memory;
     };
     calculator.clearMemory = function () {
-      memory = 0;
+      memory -= memory;
       return memory;
     };
     calculator.next = function(num) {
