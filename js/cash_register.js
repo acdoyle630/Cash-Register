@@ -108,6 +108,19 @@ document.getElementById('minus').addEventListener('click', function(){
 );
 
 
+document.getElementById('times').addEventListener('click', function(){
+	calcTest.load(newDis);
+	console.log("Total" + calcTest.getTotal());
+	resetDisplay();
+	console.log("memory" + calcTest.recallMemory());
+	addButton('times');
+	console.log(buttonOrder);
+
+} 
+);
+
+
+
 
 document.getElementById('equals').addEventListener('click', function(){
 	if(buttonOrder[buttonOrder.length-1] === 'plus'){
@@ -122,6 +135,13 @@ document.getElementById('equals').addEventListener('click', function(){
 		runningDisplay(subTotal);
 		console.log("total" + subTotal);
 		console.log('memory' +subTotal);
+		console.log('dispaly' + newDis);
+	}
+	if(buttonOrder[buttonOrder.length-1] === 'times') {
+		var mulTotal = calcTest.multiply(newDis);
+		runningDisplay(mulTotal);
+		console.log("total" + mulTotal);
+		console.log('memory' +mulTotal);
 		console.log('dispaly' + newDis);
 	}
 });
