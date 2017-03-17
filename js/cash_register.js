@@ -34,6 +34,8 @@ var regTest = registerModule();
 
 var newDis;
 
+var dotAllow = false;
+
 
  function runningDisplay(num) {
 	var changeDisplay = document.getElementById('display');
@@ -50,6 +52,17 @@ function updateDisplay (num) {
 	console.log(newDis);
 }
 
+function addDec (num) {
+	var decGrab = document.getElementById('display');
+	decGrab.innerHTML = newDis + "." + num;
+	//decDis = newDis + "." + num;
+	displayParent.appendChild(decGrab);
+	newDis = Number(decGrab.innerHTML);
+	console.log(newDis);
+
+}
+
+
 function resetDisplay (){
 	var zeroDisplay = document.getElementById('display');
 	zeroDisplay.innerHTML = '';
@@ -63,26 +76,126 @@ function addButton(str) {
 
 var buttonOrder= [];
 
-document.getElementById('one').addEventListener('click', function(){updateDisplay(1);
+document.getElementById('one').addEventListener('click', function(){
+	if(buttonOrder[buttonOrder.length-1] !== 'equals' && buttonOrder[buttonOrder.length-1] !== 'dot'){
+	updateDisplay(1);
+	}
+	if(dotAllow === true){
+		addDec(1);
+		dotAllow = false;
+		console.log(dotAllow);
+		console.log(buttonOrder);
+	}
 });
-document.getElementById('two').addEventListener('click', function(){updateDisplay(2);
+document.getElementById('two').addEventListener('click', function(){
+	if(buttonOrder[buttonOrder.length-1] !== 'equals' && buttonOrder[buttonOrder.length-1] !== 'dot'){
+	updateDisplay(2);
+	}
+	if(dotAllow === true){
+		addDec(2);
+		dotAllow = false;
+		console.log(dotAllow);
+		console.log(buttonOrder);
+	}
+
 });
-document.getElementById('three').addEventListener('click', function(){updateDisplay(3);
+document.getElementById('three').addEventListener('click', function(){
+	if(buttonOrder[buttonOrder.length-1] !== 'equals' && buttonOrder[buttonOrder.length-1] !== 'dot'){
+	updateDisplay(3);
+	}
+	if(dotAllow === true){
+		addDec(3);
+		dotAllow = false;
+		console.log(dotAllow);
+		console.log(buttonOrder);
+	}
 });
-document.getElementById('four').addEventListener('click', function(){updateDisplay(4);
+document.getElementById('four').addEventListener('click', function(){
+	if(buttonOrder[buttonOrder.length-1] !== 'equals' && buttonOrder[buttonOrder.length-1] !== 'dot'){
+	updateDisplay(4);
+	}
+	if(dotAllow === true){
+		addDec(4);
+		dotAllow = false;
+		console.log(dotAllow);
+		console.log(buttonOrder);
+	}
 });
-document.getElementById('five').addEventListener('click', function(){updateDisplay(5);
+document.getElementById('five').addEventListener('click', function(){
+	if(buttonOrder[buttonOrder.length-1] !== 'equals' && buttonOrder[buttonOrder.length-1] !== 'dot'){
+	updateDisplay(5);
+	}
+	if(dotAllow === true){
+		addDec(5);
+		dotAllow = false;
+		console.log(dotAllow);
+		console.log(buttonOrder);
+	}
 });
-document.getElementById('six').addEventListener('click', function(){updateDisplay(6);
+document.getElementById('six').addEventListener('click', function(){
+	if(buttonOrder[buttonOrder.length-1] !== 'equals' && buttonOrder[buttonOrder.length-1] !== 'dot'){
+	updateDisplay(6);
+	}
+	if(dotAllow === true){
+		addDec(6);
+		dotAllow = false;
+		console.log(dotAllow);
+		console.log(buttonOrder);
+	}
 });
-document.getElementById('seven').addEventListener('click', function(){updateDisplay(7);
+document.getElementById('seven').addEventListener('click', function(){
+	if(buttonOrder[buttonOrder.length-1] !== 'equals' && buttonOrder[buttonOrder.length-1] !== 'dot'){
+	updateDisplay(7);
+	}
+	if(dotAllow === true){
+		addDec(7);
+		dotAllow = false;
+		console.log(dotAllow);
+		console.log(buttonOrder);
+	}
 });
-document.getElementById('eight').addEventListener('click', function(){updateDisplay(8);
+document.getElementById('eight').addEventListener('click', function(){
+	if(buttonOrder[buttonOrder.length-1] !== 'equals' && buttonOrder[buttonOrder.length-1] !== 'dot'){
+	updateDisplay(8);
+	}
+	if(dotAllow === true){
+		addDec(8);
+		dotAllow = false;
+		console.log(dotAllow);
+		console.log(buttonOrder);
+	}
 });
-document.getElementById('nine').addEventListener('click', function(){updateDisplay(9);
+document.getElementById('nine').addEventListener('click', function(){
+	if(buttonOrder[buttonOrder.length-1] !== 'equals' && buttonOrder[buttonOrder.length-1] !== 'dot'){
+	updateDisplay(9);
+	}
+	if(dotAllow === true){
+		addDec(9);
+		dotAllow = false;
+		console.log(dotAllow);
+		console.log(buttonOrder);
+	}
 });
-document.getElementById('zero').addEventListener('click', function(){updateDisplay(0);
+document.getElementById('zero').addEventListener('click', function(){
+	if(buttonOrder[buttonOrder.length-1] !== 'equals' && buttonOrder[buttonOrder.length-1] !== 'dot'){
+	updateDisplay(0);
+	}
+	if(dotAllow === true){
+		addDec(0);
+		dotAllow = false;
+		console.log(dotAllow);
+		console.log(buttonOrder);
+	}
 });
+document.getElementById('dot').addEventListener('click', function(){
+	if(buttonOrder[buttonOrder.length-1] !== 'equals'){
+	console.log(buttonOrder.indexOf('dot'));
+	if(buttonOrder.indexOf('dot') === -1){
+		dotAllow = true;
+	}
+	addButton('dot');
+	console.log(buttonOrder);
+}});
 
 
 document.getElementById('plus').addEventListener('click', function(){
@@ -133,10 +246,13 @@ document.getElementById('divide').addEventListener('click', function(){
 
 
 
+
 document.getElementById('equals').addEventListener('click', function(){
 	if(buttonOrder[buttonOrder.length-1] === 'plus'){
 		var total =calcTest.add(newDis);
 		runningDisplay(total);
+		addButton('equals');
+		console.log(buttonOrder);
 		console.log("total" + total);
 		console.log("memory" + calcTest.recallMemory());
 		console.log(newDis + 'display');
@@ -162,4 +278,5 @@ document.getElementById('equals').addEventListener('click', function(){
 		console.log('memory' +divTotal);
 		console.log('dispaly' + newDis);
 	}
+	buttonOrder=[];
 });
