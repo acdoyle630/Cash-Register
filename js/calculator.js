@@ -9,48 +9,48 @@ var calculatorModule = (function() {
         throw new Error ('wrong data type');
       }
      // x = x.toString();
-      total = x;
+      memory = x;
+      total = 0;
       //var elem = document.getElementById('display');
       //total = Number(total);
       //elem.innerHTML = total;
-      return total;
+      return memory;
 
     };
     calculator.getTotal = function () {
       //var elem = document.getElementById('display');
       //elem.innerHTML = total;
-      return total;
+      return memory;
     };
     calculator.add = function(x) {
       if (typeof x !== 'number') {
         throw new Error ('wrong data type');
       }
-      total += x;
-      return total;
+      memory += x;
+      return memory;
     };
     calculator.subtract = function (x) {
       if (typeof x !== 'number') {
         throw new Error ('wrong data type');
       }
-      total -= x;
-      return total;
+      memory -= x;
+      return memory;
     };
     calculator.multiply = function (x) {
       if (typeof x !== 'number') {
         throw new Error ('wrong datat type');
       }
-      total *= x;
-      return total;
+      memory *= x;
+      return memory;
     };
     calculator.divide = function (x) {
       if(typeof x !== 'number') {
         throw new Error ('wrong data type');
       }
-      total /= x;
-      return total;
+      memory /= x;
+      return memory;
     };
     calculator.recallMemory = function() {
-      memory = memory;
       return memory;
     };
     calculator.saveMemory = function() {

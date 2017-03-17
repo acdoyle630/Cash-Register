@@ -34,6 +34,14 @@ var regTest = registerModule();
 
 var newDis;
 
+
+ function runningDisplay(num) {
+	var changeDisplay = document.getElementById('display');
+	changeDisplay.innerHTML = num;
+	displayParent.appendChild(changeDisplay);
+	newDis = Number(changeDisplay.innerHTML);
+}
+
 function updateDisplay (num) {
 	var grabDisplay = document.getElementById('display');
 	grabDisplay.innerHTML += num;
@@ -42,7 +50,18 @@ function updateDisplay (num) {
 	console.log(newDis);
 }
 
+function resetDisplay (){
+	var zeroDisplay = document.getElementById('display');
+	zeroDisplay.innerHTML = '';
+	displayParent.appendChild(zeroDisplay);
+	newDis = zeroDisplay.innerHTML;
+}
 
+function addButton(str) {
+	buttonOrder.push(str);
+}
+
+var buttonOrder= [];
 
 document.getElementById('one').addEventListener('click', function(){updateDisplay(1);
 });
@@ -67,5 +86,24 @@ document.getElementById('zero').addEventListener('click', function(){updateDispl
 
 
 document.getElementById('plus').addEventListener('click', function(){
-	console.log(calcTest.load(newDis));
+	calcTest.load(newDis);
+	console.log("Total" + calcTest.getTotal());
+	resetDisplay();
+	console.log("memory" + calcTest.recallMemory());
+	addButton('plus');
+	console.log(buttonOrder);
+
+} 
+);
+
+document.getElementById('equals').addEventListener('click', function(){
+	if(buttonOrder[buttonOrder.length-1] === 'plus'){
+		var total =calcTest.add(newDis);
+		runningDisplay(total);
+		console.log("total" + total);
+		console.log("memory" + calcTest.recallMemory());
+		console.log(newDis + 'display');
+	} else {
+		console.log('guck');
+	}
 });
