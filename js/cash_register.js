@@ -203,6 +203,7 @@ document.getElementById('plus').addEventListener('click', function(){
 	console.log("Total" + calcTest.getTotal());
 	resetDisplay();
 	console.log("memory" + calcTest.recallMemory());
+	buttonOrder.splice(buttonOrder.indexOf('dot'),1);
 	addButton('plus');
 	console.log(buttonOrder);
 
@@ -214,6 +215,7 @@ document.getElementById('minus').addEventListener('click', function(){
 	console.log("Total" + calcTest.getTotal());
 	resetDisplay();
 	console.log("memory" + calcTest.recallMemory());
+	buttonOrder.splice(buttonOrder.indexOf('dot'),1);
 	addButton('minus');
 	console.log(buttonOrder);
 
@@ -226,6 +228,7 @@ document.getElementById('times').addEventListener('click', function(){
 	console.log("Total" + calcTest.getTotal());
 	resetDisplay();
 	console.log("memory" + calcTest.recallMemory());
+	buttonOrder.splice(buttonOrder.indexOf('dot'),1);
 	addButton('times');
 	console.log(buttonOrder);
 
@@ -237,6 +240,7 @@ document.getElementById('divide').addEventListener('click', function(){
 	console.log("Total" + calcTest.getTotal());
 	resetDisplay();
 	console.log("memory" + calcTest.recallMemory());
+	buttonOrder.splice(buttonOrder.indexOf('dot'),1);
 	addButton('divide');
 	console.log(buttonOrder);
 
