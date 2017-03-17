@@ -119,6 +119,17 @@ document.getElementById('times').addEventListener('click', function(){
 } 
 );
 
+document.getElementById('divide').addEventListener('click', function(){
+	calcTest.load(newDis);
+	console.log("Total" + calcTest.getTotal());
+	resetDisplay();
+	console.log("memory" + calcTest.recallMemory());
+	addButton('divide');
+	console.log(buttonOrder);
+
+} 
+);
+
 
 
 
@@ -142,6 +153,13 @@ document.getElementById('equals').addEventListener('click', function(){
 		runningDisplay(mulTotal);
 		console.log("total" + mulTotal);
 		console.log('memory' +mulTotal);
+		console.log('dispaly' + newDis);
+	}
+	if(buttonOrder[buttonOrder.length-1] === 'divide') {
+		var divTotal = calcTest.divide(newDis);
+		runningDisplay(divTotal);
+		console.log("total" + divTotal);
+		console.log('memory' +divTotal);
 		console.log('dispaly' + newDis);
 	}
 });
