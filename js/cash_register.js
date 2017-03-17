@@ -96,6 +96,19 @@ document.getElementById('plus').addEventListener('click', function(){
 } 
 );
 
+document.getElementById('minus').addEventListener('click', function(){
+	calcTest.load(newDis);
+	console.log("Total" + calcTest.getTotal());
+	resetDisplay();
+	console.log("memory" + calcTest.recallMemory());
+	addButton('minus');
+	console.log(buttonOrder);
+
+} 
+);
+
+
+
 document.getElementById('equals').addEventListener('click', function(){
 	if(buttonOrder[buttonOrder.length-1] === 'plus'){
 		var total =calcTest.add(newDis);
@@ -103,7 +116,12 @@ document.getElementById('equals').addEventListener('click', function(){
 		console.log("total" + total);
 		console.log("memory" + calcTest.recallMemory());
 		console.log(newDis + 'display');
-	} else {
-		console.log('guck');
+	} 
+	if(buttonOrder[buttonOrder.length-1] === 'minus') {
+		var subTotal = calcTest.subtract(newDis);
+		runningDisplay(subTotal);
+		console.log("total" + subTotal);
+		console.log('memory' +subTotal);
+		console.log('dispaly' + newDis);
 	}
 });
