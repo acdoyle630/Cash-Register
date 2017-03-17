@@ -36,6 +36,13 @@ var newDis;
 
 var dotAllow = false;
 
+function clear() {
+	var clearDis = document.getElementById('display');
+	clearDis.innerHTML = '';
+	displayParent.appendChild(clearDis);
+	
+}
+
 
  function runningDisplay(num) {
 	var changeDisplay = document.getElementById('display');
@@ -296,4 +303,10 @@ document.getElementById('equals').addEventListener('click', function(){
 		console.log('dispaly' + newDis);
 	}
 	buttonOrder=[];
+});
+
+document.getElementById('clear').addEventListener('click', function(){
+	clear();
+	console.log(newDis);
+	console.log(balance);
 });
