@@ -198,6 +198,18 @@ document.getElementById('dot').addEventListener('click', function(){
 }});
 
 
+document.getElementById('doubleZero').addEventListener('click', function(){
+	dotAllow = !dotAllow;
+	if(dotAllow === true){
+		addDec('00');
+		dotAllow = false;
+		console.log(dotAllow);
+		console.log(buttonOrder);
+	}
+});
+
+
+
 document.getElementById('plus').addEventListener('click', function(){
 	calcTest.load(newDis);
 	console.log("Total" + calcTest.getTotal());
@@ -246,6 +258,7 @@ document.getElementById('divide').addEventListener('click', function(){
 
 } 
 );
+
 
 
 
