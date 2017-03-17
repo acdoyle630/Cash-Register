@@ -248,7 +248,7 @@ document.getElementById('divide').addEventListener('click', function(){
 
 
 document.getElementById('equals').addEventListener('click', function(){
-	if(buttonOrder[buttonOrder.length-1] === 'plus'){
+	if(buttonOrder[buttonOrder.length-1] === 'plus' || buttonOrder[buttonOrder.length-1] === 'dot' && buttonOrder[buttonOrder.length-2] === 'plus'){
 		var total =calcTest.add(newDis);
 		runningDisplay(total);
 		addButton('equals');
@@ -257,21 +257,21 @@ document.getElementById('equals').addEventListener('click', function(){
 		console.log("memory" + calcTest.recallMemory());
 		console.log(newDis + 'display');
 	} 
-	if(buttonOrder[buttonOrder.length-1] === 'minus') {
+	if(buttonOrder[buttonOrder.length-1] === 'minus' || buttonOrder[buttonOrder.length-1] === 'dot' && buttonOrder[buttonOrder.length-2] === 'minus') {
 		var subTotal = calcTest.subtract(newDis);
 		runningDisplay(subTotal);
 		console.log("total" + subTotal);
 		console.log('memory' +subTotal);
 		console.log('dispaly' + newDis);
 	}
-	if(buttonOrder[buttonOrder.length-1] === 'times') {
+	if(buttonOrder[buttonOrder.length-1] === 'times' || buttonOrder[buttonOrder.length-1] === 'dot' && buttonOrder[buttonOrder.length-2] === 'times') {
 		var mulTotal = calcTest.multiply(newDis);
 		runningDisplay(mulTotal);
 		console.log("total" + mulTotal);
 		console.log('memory' +mulTotal);
 		console.log('dispaly' + newDis);
 	}
-	if(buttonOrder[buttonOrder.length-1] === 'divide') {
+	if(buttonOrder[buttonOrder.length-1] === 'divide' || buttonOrder[buttonOrder.length-1] === 'dot' && buttonOrder[buttonOrder.length-2] === 'divide') {
 		var divTotal = calcTest.divide(newDis);
 		runningDisplay(divTotal);
 		console.log("total" + divTotal);
