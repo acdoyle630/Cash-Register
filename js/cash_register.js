@@ -60,6 +60,17 @@ function showBalance(){
 	newDis = Number(balance);
 }
 
+function withdraw(x) {
+	if (x <= balance) {
+		balance -=x;
+		reset();
+	} else {
+		var InFunds = document.getElementById('display');
+		InFunds.innerHTML = "Insufficient funds ya broke motha fucka'";
+		displayParent.appendChild(InFunds);
+
+	}
+}
 
 
  function runningDisplay(num) {
@@ -348,4 +359,10 @@ document.getElementById('deposit').addEventListener('click', function(){
 document.getElementById('balance').addEventListener('click', function(){
 	showBalance();
 	console.log(balance);
+});
+
+document.getElementById('withdraw').addEventListener('click', function(){
+	withdraw(Number(newDis));
+	console.log('balancee' + balance);
+	console.log('newDIs' + newDis);
 });
