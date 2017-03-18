@@ -18,7 +18,7 @@ function reset(){
 
 function showBalance(){
 	var displayBal = document.getElementById('display');
-	displayBal.innerHTML = balance;
+	displayBal.innerHTML = balance.toFixed(2);
 	displayParent.appendChild(displayBal);
 	newDis = Number(balance);
 
@@ -29,7 +29,7 @@ function withdraw(x) {
 		balance -= x;
 		reset();
 	} else {
-	alert('You broke as fuck!');
+	alert('You broke as fuck! Current Balance: $' + balance.toFixed(2));
 	}
 }
 
@@ -209,10 +209,12 @@ document.getElementById('dot').addEventListener('click', function(){
 
 document.getElementById('doubleZero').addEventListener('click', function(){
 	dotAllow = !dotAllow;
-	if(dotAllow === true){
+	//if(dotAllow === true){
+		if (buttonOrder.indexOf('dot') === -1) {
 		addDec('00');
 		dotAllow = false;
 	}
+
 });
 
 document.getElementById('plus').addEventListener('click', function(){
@@ -280,18 +282,22 @@ document.getElementById('reset').addEventListener('click', function(){
 });
 
 document.getElementById('deposit').addEventListener('click', function(){
+	if(buttonOrder[buttonOrder.length - 2] !== 'balance' && Number(newDis) > 0){
 	balance += Number(newDis);
 	reset();
 	buttonOrder.push('deposit');
+	}
 });
 
 document.getElementById('balance').addEventListener('click', function(){
 	showBalance();
-	buttonOrder.push('equals');
+	buttonOrder.push('balance', 'equals');
 });
 
 document.getElementById('withdraw').addEventListener('click', function(){
+	if(buttonOrder[buttonOrder.length - 2] !== 'balance' && Number(newDis) > 0) {
 	withdraw(Number(newDis));
 	buttonOrder.push('withdraw');
+	}
 });
 
