@@ -36,6 +36,8 @@ var newDis;
 
 var dotAllow = false;
 
+
+
 function clear() {
 	var clearDis = document.getElementById('display');
 	clearDis.innerHTML = '';
@@ -114,9 +116,14 @@ var buttonOrder= [];
 
 document.getElementById('one').addEventListener('click', function(){
 	if(buttonOrder[buttonOrder.length-1] !== 'equals' && buttonOrder[buttonOrder.length-1] !== 'dot'){
+	updateDisplay(1);	
+	console.log(dotAllow);
+	console.log(buttonOrder);
+	}
+	else if (dotAllow===false && buttonOrder[buttonOrder.length-1] !== 'equals') {
 	updateDisplay(1);
 	}
-	if(dotAllow === true){
+	else if(dotAllow === true){
 		addDec(1);
 		dotAllow = false;
 		console.log(dotAllow);
@@ -127,16 +134,21 @@ document.getElementById('two').addEventListener('click', function(){
 	if(buttonOrder[buttonOrder.length-1] !== 'equals' && buttonOrder[buttonOrder.length-1] !== 'dot'){
 	updateDisplay(2);
 	}
+	else if (dotAllow===false && buttonOrder[buttonOrder.length-1] !== 'equals') {
+	updateDisplay(2);
+	}
 	if(dotAllow === true){
 		addDec(2);
 		dotAllow = false;
 		console.log(dotAllow);
 		console.log(buttonOrder);
 	}
-
 });
 document.getElementById('three').addEventListener('click', function(){
 	if(buttonOrder[buttonOrder.length-1] !== 'equals' && buttonOrder[buttonOrder.length-1] !== 'dot'){
+	updateDisplay(3);
+	}
+	else if (dotAllow===false && buttonOrder[buttonOrder.length-1] !== 'equals') {
 	updateDisplay(3);
 	}
 	if(dotAllow === true){
@@ -150,15 +162,22 @@ document.getElementById('four').addEventListener('click', function(){
 	if(buttonOrder[buttonOrder.length-1] !== 'equals' && buttonOrder[buttonOrder.length-1] !== 'dot'){
 	updateDisplay(4);
 	}
+	else if (dotAllow===false && buttonOrder[buttonOrder.length-1] !== 'equals') {
+	updateDisplay(4);
+	}
 	if(dotAllow === true){
 		addDec(4);
 		dotAllow = false;
+	
 		console.log(dotAllow);
 		console.log(buttonOrder);
 	}
 });
 document.getElementById('five').addEventListener('click', function(){
 	if(buttonOrder[buttonOrder.length-1] !== 'equals' && buttonOrder[buttonOrder.length-1] !== 'dot'){
+	updateDisplay(5);
+	}
+	else if (dotAllow===false && buttonOrder[buttonOrder.length-1] !== 'equals') {
 	updateDisplay(5);
 	}
 	if(dotAllow === true){
@@ -172,6 +191,9 @@ document.getElementById('six').addEventListener('click', function(){
 	if(buttonOrder[buttonOrder.length-1] !== 'equals' && buttonOrder[buttonOrder.length-1] !== 'dot'){
 	updateDisplay(6);
 	}
+	else if (dotAllow===false && buttonOrder[buttonOrder.length-1] !== 'equals') {
+	updateDisplay(6);
+	}
 	if(dotAllow === true){
 		addDec(6);
 		dotAllow = false;
@@ -181,6 +203,9 @@ document.getElementById('six').addEventListener('click', function(){
 });
 document.getElementById('seven').addEventListener('click', function(){
 	if(buttonOrder[buttonOrder.length-1] !== 'equals' && buttonOrder[buttonOrder.length-1] !== 'dot'){
+	updateDisplay(7);
+	}
+	else if (dotAllow===false && buttonOrder[buttonOrder.length-1] !== 'equals') {
 	updateDisplay(7);
 	}
 	if(dotAllow === true){
@@ -194,6 +219,9 @@ document.getElementById('eight').addEventListener('click', function(){
 	if(buttonOrder[buttonOrder.length-1] !== 'equals' && buttonOrder[buttonOrder.length-1] !== 'dot'){
 	updateDisplay(8);
 	}
+	else if (dotAllow===false && buttonOrder[buttonOrder.length-1] !== 'equals') {
+	updateDisplay(8);
+	}
 	if(dotAllow === true){
 		addDec(8);
 		dotAllow = false;
@@ -205,6 +233,9 @@ document.getElementById('nine').addEventListener('click', function(){
 	if(buttonOrder[buttonOrder.length-1] !== 'equals' && buttonOrder[buttonOrder.length-1] !== 'dot'){
 	updateDisplay(9);
 	}
+	else if (dotAllow===false && buttonOrder[buttonOrder.length-1] !== 'equals') {
+	updateDisplay(9);
+	}
 	if(dotAllow === true){
 		addDec(9);
 		dotAllow = false;
@@ -214,6 +245,9 @@ document.getElementById('nine').addEventListener('click', function(){
 });
 document.getElementById('zero').addEventListener('click', function(){
 	if(buttonOrder[buttonOrder.length-1] !== 'equals' && buttonOrder[buttonOrder.length-1] !== 'dot'){
+	updateDisplay(0);
+	}
+	else if (dotAllow===false && buttonOrder[buttonOrder.length-1] !== 'equals') {
 	updateDisplay(0);
 	}
 	if(dotAllow === true){
@@ -228,10 +262,12 @@ document.getElementById('dot').addEventListener('click', function(){
 	console.log(buttonOrder.indexOf('dot'));
 	if(buttonOrder.indexOf('dot') === -1){
 		dotAllow = true;
-	}
+	} 
 	addButton('dot');
 	console.log(buttonOrder);
-}});
+	console.log("New DIs" + newDis);
+	}
+});
 
 
 document.getElementById('doubleZero').addEventListener('click', function(){
@@ -331,7 +367,7 @@ document.getElementById('equals').addEventListener('click', function(){
 		console.log('memory' +divTotal);
 		console.log('dispaly' + newDis);
 	}
-	buttonOrder=[];
+	buttonOrder=['equals'];
 });
 
 document.getElementById('clear').addEventListener('click', function(){
