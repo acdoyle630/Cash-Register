@@ -21,6 +21,7 @@ function showBalance(){
 	displayBal.innerHTML = balance;
 	displayParent.appendChild(displayBal);
 	newDis = Number(balance);
+
 }
 
 function withdraw(x) {
@@ -28,15 +29,13 @@ function withdraw(x) {
 		balance -= x;
 		reset();
 	} else {
-		var InFunds = document.getElementById('display');
-		InFunds.innerHTML = "Insufficient funds ya broke motha fucka'";
-		displayParent.appendChild(InFunds);
+	alert('You broke as fuck!');
 	}
 }
 
 function runningDisplay(num) {
 	var changeDisplay = document.getElementById('display');
-	changeDisplay.innerHTML = num;
+	changeDisplay.innerHTML = num.toFixed(2);
 	displayParent.appendChild(changeDisplay);
 	newDis = Number(changeDisplay.innerHTML);
 }
@@ -66,14 +65,6 @@ function addButton(str) {
 	buttonOrder.push(str);
 }
 
-function plusMinus(){
-	var change = document.getElementById('display');
-	change.innerHTML = newDis - (newDis * 2);
-	displayParent.appendChild(change);
-	newDis = change;
-	console.log(newDis);
-	console.log(typeof newDis)
-}
 
 var buttonOrder = [];
 
@@ -279,27 +270,28 @@ document.getElementById('equals').addEventListener('click', function(){
 
 document.getElementById('clear').addEventListener('click', function(){
 	clear();
+	buttonOrder.push('clear');
 });
 
 document.getElementById('reset').addEventListener('click', function(){
 	reset();
 	newDis = 0;
+	buttonOrder.push('reset');
 });
 
 document.getElementById('deposit').addEventListener('click', function(){
 	balance += Number(newDis);
 	reset();
+	buttonOrder.push('deposit');
 });
 
 document.getElementById('balance').addEventListener('click', function(){
 	showBalance();
+	buttonOrder.push('equals');
 });
 
 document.getElementById('withdraw').addEventListener('click', function(){
 	withdraw(Number(newDis));
-});
-
-document.getElementById('plusMinus').addEventListener('click', function(){
-	plusMinus();
+	buttonOrder.push('withdraw');
 });
 

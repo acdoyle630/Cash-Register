@@ -2,5 +2,27 @@ button {
 	color:red;
 	height: 100px;
 	width: 200px;
+	border-color: black;
+	border-width: 10px;
+}
+
+body{
+	background-color:blue
+}
+
+h1 {
+	text-align: center;
+}
+
+p {
+	text-align: center;
+	color: black;
+	font-size: 40px;
+}
+
+#display {
+	border-width: 10px;
+	border-color: black;
+	background-color:grey;
 }
 
