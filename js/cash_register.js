@@ -53,6 +53,12 @@ function reset(){
 
 }
 
+function showBalance(){
+	var displayBal = document.getElementById('display');
+	displayBal.innerHTML = balance;
+	displayParent.appendChild(displayBal);
+	newDis = Number(balance);
+}
 
 
 
@@ -339,6 +345,7 @@ document.getElementById('deposit').addEventListener('click', function(){
 
 });
 
-docuemnt.getElementById('balance').addEventListener('click', function(){
-	regTest.getBalance();
+document.getElementById('balance').addEventListener('click', function(){
+	showBalance();
+	console.log(balance);
 });
