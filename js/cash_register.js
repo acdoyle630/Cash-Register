@@ -1,6 +1,7 @@
 var balance = 0;
 var newDis;
 var dotAllow = false;
+var display = document.getElementById('display');
 
 function clear() {
 	var clearDis = document.getElementById('display');
@@ -63,7 +64,6 @@ function resetDisplay (){
 function addButton(str) {
 	buttonOrder.push(str);
 }
-
 
 var buttonOrder = [];
 
@@ -267,7 +267,7 @@ document.getElementById('equals').addEventListener('click', function(){
 	} else {
 		alert('cannot divide by zero');
 	}
-}
+	}
 	buttonOrder = ['equals'];
 });
 

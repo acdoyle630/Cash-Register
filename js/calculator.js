@@ -8,18 +8,12 @@ var calculatorModule = (function() {
       if (typeof x !== 'number') {
         throw new Error ('wrong data type');
       }
-     // x = x.toString();
       memory = x;
       total = 0;
-      //var elem = document.getElementById('display');
-      //total = Number(total);
-      //elem.innerHTML = total;
       return memory;
 
     };
     calculator.getTotal = function () {
-      //var elem = document.getElementById('display');
-      //elem.innerHTML = total;
       return memory;
     };
     calculator.add = function(x) {
