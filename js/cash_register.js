@@ -7,11 +7,10 @@ var registerModule = (function() {
 		return calcTest.getTotal();
 	}
 	function getBalance() {
-		return balance;
+		console.log (balance);
 	}
-	function depositCash() {
+	function depositCash(total) {
 		balance+=total;
-		total=0;
 		return balance;
 	}
 	function withdrawCash (){
@@ -29,6 +28,7 @@ var registerModule = (function() {
 });
 
 
+var balance = 0;
 
 var regTest = registerModule();
 
@@ -45,6 +45,7 @@ function clear() {
 
 function reset(){
 	clear();
+	newDis = 0;
 	calcTest.clearMemory();
 	console.log("memory" + calcTest.recallMemory());
 	dotAllow = false;
@@ -331,7 +332,13 @@ document.getElementById('reset').addEventListener('click', function(){
 });
 
 document.getElementById('deposit').addEventListener('click', function(){
-	regTest.depositCash();
+	console.log(newDis);
+	balance += Number(newDis);
 	reset();
+	console.log('balance' + balance);
 
+});
+
+docuemnt.getElementById('balance').addEventListener('click', function(){
+	regTest.getBalance();
 });
