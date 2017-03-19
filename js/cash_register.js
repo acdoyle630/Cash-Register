@@ -2,6 +2,7 @@ var balance = 0;
 var newDis;
 var dotAllow = false;
 var display = document.getElementById('display');
+var disToString = ('' + newDis);
 
 function clear() {
 	var clearDis = document.getElementById('display');
@@ -38,6 +39,9 @@ function runningDisplay(num) {
 	changeDisplay.innerHTML = num.toFixed(2);
 	displayParent.appendChild(changeDisplay);
 	newDis = Number(changeDisplay.innerHTML);
+	console.log(newDis);
+	console.log(typeof newDis);
+	console.log('' + newDis);
 }
 
 function updateDisplay (num) {
@@ -48,10 +52,12 @@ function updateDisplay (num) {
 }
 
 function addDec (num) {
+	if(('' + newDis).split('').indexOf('.') === -1){
 	var decGrab = document.getElementById('display');
 	decGrab.innerHTML = newDis + "." + num;
 	displayParent.appendChild(decGrab);
 	newDis = Number(decGrab.innerHTML);
+	}
 }
 
 function resetDisplay (){

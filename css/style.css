@@ -12,6 +12,8 @@ button {
 
 button:hover {
 	background-color: white;
+	cursor: pointer;
+	font-size: 25px;
 }
 
 #deposit {
